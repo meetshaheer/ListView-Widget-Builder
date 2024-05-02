@@ -19,7 +19,7 @@ class _listViewState extends State<listView> {
           margin: EdgeInsets.only(bottom: 2),
           child: ListTile(
             tileColor: Colors.amber[100],
-            title: Text("data"),
+            title: Text(index.toString()),
           ),
         );
       },
