@@ -11,91 +11,18 @@ class _listViewState extends State<listView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: ListView(
-        children: [
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
+        body: SafeArea(
+            child: ListView.builder(
+      itemCount: 6,
+      itemBuilder: (context, index) {
+        return Container(
+          margin: EdgeInsets.only(bottom: 2),
+          child: ListTile(
+            tileColor: Colors.amber[100],
+            title: Text("data"),
           ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-          Text("Hello"),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text("Add Value"),
-          ),
-        ],
-      )),
-    );
+        );
+      },
+    )));
   }
 }
