@@ -9,12 +9,21 @@ class listView extends StatefulWidget {
 
 class _listViewState extends State<listView> {
   List students = ["Ali", "Ahmed", "Saad", "Asad", "Waqas", "Essa", "Sadaf"];
+
+  addvalue() {
+    setState(() {
+      students.add("Value");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              addvalue();
+            },
             child: Text("Add Value"),
           ),
         ),
