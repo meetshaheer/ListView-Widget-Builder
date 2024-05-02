@@ -17,6 +17,12 @@ class _listViewState extends State<listView> {
     });
   }
 
+  deletvalue({parameter}) {
+    setState(() {
+      students.removeAt(parameter);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +46,16 @@ class _listViewState extends State<listView> {
             return Container(
               margin: EdgeInsets.only(bottom: 2),
               child: ListTile(
-                tileColor: Colors.amber[100],
-                title: Text(students[index]),
-              ),
+                  tileColor: Colors.amber[100],
+                  title: Text(students[index]),
+                  trailing: IconButton(
+                    onPressed: () {
+                      deletvalue(parameter: index);
+                    },
+                    icon: Icon(
+                      Icons.delete,
+                    ),
+                  )),
             );
           },
         )));
