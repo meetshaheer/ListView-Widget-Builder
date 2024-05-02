@@ -8,11 +8,12 @@ class listView extends StatefulWidget {
 }
 
 class _listViewState extends State<listView> {
-  List students = ["Ali", "Ahmed", "Saad", "Asad", "Waqas", "Essa", "Sadaf"];
-
+  List students = [];
+  TextEditingController friendlistcontroller = TextEditingController();
   addvalue() {
     setState(() {
-      students.add("Value");
+      students.add(friendlistcontroller.text);
+      friendlistcontroller.clear();
     });
   }
 
@@ -20,12 +21,17 @@ class _listViewState extends State<listView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: ElevatedButton(
-            onPressed: () {
-              addvalue();
-            },
-            child: Text("Add Value"),
+          title: TextField(
+            controller: friendlistcontroller,
           ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                addvalue();
+              },
+              child: Text("Add Value"),
+            )
+          ],
         ),
         body: SafeArea(
             child: ListView.builder(
