@@ -8,8 +8,11 @@ class listView extends StatefulWidget {
 }
 
 class _listViewState extends State<listView> {
-  List students = [];
+  List students = ["Ahmed", "Ali", "Essa", "Waqas", "Saad"];
+
   TextEditingController friendlistcontroller = TextEditingController();
+  TextEditingController updatevalcontroller = TextEditingController();
+
   addvalue() {
     setState(() {
       if (friendlistcontroller.text != "") {
@@ -50,11 +53,33 @@ class _listViewState extends State<listView> {
               child: ListTile(
                   tileColor: Colors.amber[100],
                   title: Text(students[index]),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
+                  trailing: Wrap(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          updatevalcontroller.text = students[index];
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text("Update Value"),
+                                  content: TextField(
+                                    controller: updatevalcontroller,
+                                  ),
+                                  actions: [
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            students[index] =
+                                                updatevalcontroller.text;
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Update Value"))
+                                  ],
+                                );
+                              });
+                        },
                         icon: const Icon(
                           Icons.edit,
                         ),
