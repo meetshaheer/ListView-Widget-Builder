@@ -12,8 +12,10 @@ class _listViewState extends State<listView> {
   TextEditingController friendlistcontroller = TextEditingController();
   addvalue() {
     setState(() {
-      students.add(friendlistcontroller.text);
-      friendlistcontroller.clear();
+      if (friendlistcontroller.text != "") {
+        students.add(friendlistcontroller.text);
+        friendlistcontroller.clear();
+      }
     });
   }
 
