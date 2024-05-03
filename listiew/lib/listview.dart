@@ -35,7 +35,7 @@ class _listViewState extends State<listView> {
               onPressed: () {
                 addvalue();
               },
-              child: Text("Add Value"),
+              child: Text("Add"),
             )
           ],
         ),
@@ -48,13 +48,24 @@ class _listViewState extends State<listView> {
               child: ListTile(
                   tileColor: Colors.amber[100],
                   title: Text(students[index]),
-                  trailing: IconButton(
-                    onPressed: () {
-                      deletvalue(parameter: index);
-                    },
-                    icon: Icon(
-                      Icons.delete,
-                    ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.edit,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          deletvalue(parameter: index);
+                        },
+                        icon: const Icon(
+                          Icons.delete,
+                        ),
+                      ),
+                    ],
                   )),
             );
           },
